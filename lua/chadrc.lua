@@ -7,17 +7,13 @@ local M = {}
 
 M.base46 = {
     theme = "onedark",
-    transparency =  vim.g.neovide and false or true,
+    transparency = not vim.g.neovide,
+    integrations = { "bufferline" },
     -- hl_override = {
     -- 	Comment = { italic = true },
     -- 	["@comment"] = { italic = true },
     -- },
 }
-
--- 如果是neovide的话,关透明, 让neovide接管透明
-if vim.g.neovide then
-    M.base46.transparency = false
-end
 
 M.nvdash = {
     load_on_startup = true,

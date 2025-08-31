@@ -37,6 +37,9 @@ local servers = {
 
     -- Bash语言服务器 - 使用默认配置
     bashls = {},
+
+    -- Docker语言服务器
+    docker_language_server = {}
 }
 
 -- 遍历所有服务器并启用配置

@@ -9,12 +9,12 @@ map("n", "<leader>aa", "ggVG", { desc = "全选" })
 map("n", "<S-u>", "<C-r>", { desc = "重做" })
 
 -- 快速切换
-map({ "n", "v" }, "J", "6j", { desc = "快速移动" })
-map({ "n", "v" }, "K", "6k", { desc = "快速移动" })
--- map({ "n", "v" }, "<C-j>", "6j", { desc = "快速移动" })
--- map({ "n", "v" }, "<C-k>", "6k", { desc = "快速移动" })
-map({ "n", "v" }, "H", "0", { desc = "移动到行首" })
-map({ "n", "v" }, "L", "$", { desc = "移动到行尾" })
+-- map({ "n", "v" }, "J", "6j", { desc = "快速移动" })
+-- map({ "n", "v" }, "K", "6k", { desc = "快速移动" })
+map({ "n", "v" }, "<C-j>", "6j", { desc = "快速移动" })
+map({ "n", "v" }, "<C-k>", "6k", { desc = "快速移动" })
+map({ "n", "v" }, "<C-h>", "0", { desc = "移动到行首" })
+map({ "n", "v" }, "<C-l>", "$", { desc = "移动到行尾" })
 
 -- 重载配置
 map("n", "<leader>rc", "<CMD>source ~/.config/nvim/init.lua<CR>", { desc = "重载配置" })
@@ -106,7 +106,6 @@ map("n", "<leader>tnv", function()
     require("utils.toggleterm").new_()
 end, { desc = "创建新的浮动终端" })
 
-
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- 终端模式下的窗口切换快捷键
@@ -140,6 +139,26 @@ end, { desc = "terminal toggleable horizontal term" })
 map({ "n", "t" }, "<A-i>", function()
     require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "terminal toggle floating term" })
+
+-- load the session for the current directory
+vim.keymap.set("n", "<leader>qs", function()
+    require("persistence").load()
+end)
+
+-- select a session to load
+map("n", "<leader>qS", function()
+    require("persistence").select()
+end)
+
+-- load the last session
+map("n", "<leader>ql", function()
+    require("persistence").load { last = true }
+end)
+
+-- stop Persistence => session won't be saved on exit
+map("n", "<leader>qd", function()
+    require("persistence").stop()
+end)
 
 -- AI Code相关快捷键(Augment Code)
 map("n", "<leader>ac", "<cmd>Augment chat<CR>", { desc = "AI Code chat" })

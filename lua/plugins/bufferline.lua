@@ -4,8 +4,8 @@ return {
     -- enabled=false,
     event = "VeryLazy",
     keys = {
-        { "<C-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-        { "<C-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+        { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
+        { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
         { "<leader>x", "<cmd>BufferClose<cr>", desc = "Prev buffer" },
     },
     opts = {

@@ -33,11 +33,11 @@ local function setup_toggleterm_colors()
     require("toggleterm").setup {
         highlights = {
             Normal = {
-                guibg = normal_bg or "#1e1e1e",
-                guifg = normal_fg or "#ffffff",
+                guibg = normal_bg,
+                guifg = normal_fg,
             },
             NormalFloat = {
-                guibg = normal_bg or "#1e1e1e",
+                guibg = normal_bg,
             },
         },
     }
